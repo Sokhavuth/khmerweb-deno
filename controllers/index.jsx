@@ -11,7 +11,7 @@ function Index(){
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>data.siteTitle | data.pageTitle</title>
         <link href="/images/siteLogo.png" rel="icon" />
-        <link href="/styles/base.css" rel="stylesheet" />
+        <link href="/styles/index.css" rel="stylesheet" />
         <link href="/fonts/setup.css" rel="stylesheet" />
         <script src="/scripts/jquery.js"></script>
       </head>
