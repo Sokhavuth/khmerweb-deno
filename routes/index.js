@@ -1,11 +1,7 @@
 import { Router } from "../deps.ts";
-
 const router = Router();
 
-import html from '../views/base.jsx'
-
-router.get("/", (_req, res, _next) => {
-  res.send(html)
-});
+import home from './front/home.js'
+router.use('/', home)
 
 export default router;

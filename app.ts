@@ -10,7 +10,7 @@ import {
 } from "./deps.ts";
 
 import indexRouter from "./routes/index.js";
-import usersRouter from "./routes/users.js";
+import adminRouter from "./routes/admin.js";
 
 const __dirname = fromFileUrl(dirname(import.meta.url));
 
@@ -25,6 +25,6 @@ app.use(serveStatic(join(__dirname, "static")));
 
 // Mount our routers
 app.use("/", indexRouter);
-app.use("/users", usersRouter);  
+app.use("/admin", adminRouter);  
 
 export default app;

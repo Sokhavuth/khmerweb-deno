@@ -10,5 +10,5 @@ export {
   serveStatic,
   urlencoded,
 } from "https://deno.land/x/opine@2.2.0/mod.ts";
-export { h, renderSSR } from "https://deno.land/x/nano_jsx@v0.0.20/mod.ts"
+export { h, renderSSR } from "https://deno.land/x/nano_jsx@v0.0.33/mod.ts"
 
