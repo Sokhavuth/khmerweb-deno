@@ -1,11 +1,11 @@
 /* static/styles/base.css */
 :root{
-    --background-light: lightgrey;
-    --background: grey;
-    --background-dark: #272727;
+    --background-light: #dcf9c6;
+    --background: #88d498;
+    --background-dark: #155f4b;
     --body-font: 14px/1.5 Vidaloka, OdorMeanChey;
-    --link: teal;
-    --color: white;
+    --link: #1a936f;
+    --color: black;
 }
   
 *{
@@ -28,5 +28,5 @@ a:hover{
 body{
     color: var(--color);
     font: var(--body-font);
-    background: var(--background);
+    background: var(--background-light);
 }

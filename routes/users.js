@@ -2,10 +2,9 @@ import { Router } from "../deps.ts";
 
 const router = Router();
 
-import html from '../views/base.jsx'
-
+// GET users listing.
 router.get("/", (_req, res, _next) => {
-  res.send(html)
+  res.send("Users are coming shortly!");
 });
 
 export default router;
