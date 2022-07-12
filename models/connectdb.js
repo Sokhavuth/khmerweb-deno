@@ -1,9 +1,7 @@
 // models/connectdb.ts
 
-import { config, dango } from "../deps.ts"
+import { config, DB } from "../deps.ts"
 
-const { DATABASE_URI, DB_NAME } = await config()
+const db = new DB("./test.db")
 
-await dango.connect(DATABASE_URI)
-
-export default dango
+export default db

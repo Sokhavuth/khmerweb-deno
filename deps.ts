@@ -18,4 +18,4 @@ export { h, renderSSR } from "https://deno.land/x/nano_jsx@v0.0.33/mod.ts"
 
 export { config } from "https://deno.land/std@0.147.0/dotenv/mod.ts"
 
-export { dango } from "https://deno.land/x/dangodb@v1.0.2/mod.ts"
+export { DB } from "https://deno.land/x/sqlite/mod.ts"
