@@ -1,7 +1,11 @@
 // models/connectdb.ts
 
-import { config, DB } from "../deps.ts"
+import { config, MongoClient } from "../deps.ts"
 
-const db = new DB("./test.db")
+const { DATABASE_URI, DB_NAME } = await config()
 
-export default db
+const client = new MongoClient()
+await client.connect(DATABASE_URI)
+const mydb = client.database(DB_NAME);
+
+export default mydb
