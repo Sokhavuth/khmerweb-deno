@@ -1,16 +1,11 @@
-// models/connectdb.js
+// models/connectdb.ts
 
 import { config, MongoClient } from "../deps.ts"
 
 const env = await config()
 
-async function connectdb(){
-  const client = new MongoClient()
-  await client.connect(env.DATABASE_URI)
+const client = new MongoClient()
+await client.connect(env.DATABASE_URI)
   
-  return client.database(env.DB_NAME)
-}
-
-const mydb = connectdb()
-
+const mydb = client.database(env.DB_NAME)
 export default mydb
