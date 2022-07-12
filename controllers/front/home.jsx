@@ -3,7 +3,7 @@
 /** @jsx h */
 import { h, renderSSR } from "../../deps.ts"
 import config from '../../config.js'
-import _Home from '../../views/front/home.jsx'
+import Base from '../../views/base.jsx'
 
 class Home{
   async getItem(req, res){
@@ -11,7 +11,7 @@ class Home{
     this.config.pageTitle = 'ទំព័រ​ដើម'
     this.config.route = '/'
 
-    const str = renderSSR(<_Home config={this.config} />)
+    const str = renderSSR(<Base config={this.config} />)
     const html = `<!DOCTYPE html>${str}`
     res.send(html)
   }

@@ -1,3 +1,5 @@
+// app.ts
+
 import {
 
   dirname,
@@ -7,24 +9,26 @@ import {
   opine,
   serveStatic,
   urlencoded,
-} from "./deps.ts";
+} from "./deps.ts"
 
-import indexRouter from "./routes/index.js";
-import adminRouter from "./routes/admin.js";
+import indexRouter from "./routes/index.js"
+import adminRouter from "./routes/admin.js"
+import mydb from './models/connectdb.js'
+const app = opine()
 
-const __dirname = fromFileUrl(dirname(import.meta.url));
+const __dirname = fromFileUrl(dirname(import.meta.url))
 
-const app = opine();
+app.use(async (req,res, next) => {
+  req.mydb = await mydb
+  next()
+})
 
-// Handle different incoming body types
-app.use(json());
-app.use(urlencoded());
+app.use(json())
+app.use(urlencoded())
 
-// Serve our static assets
-app.use(serveStatic(join(__dirname, "static")));
+app.use(serveStatic(join(__dirname, "static")))
 
-// Mount our routers
-app.use("/", indexRouter);
-app.use("/admin", adminRouter);  
+app.use("/", indexRouter)
+app.use("/admin", adminRouter)
 
-export default app;
+export default app

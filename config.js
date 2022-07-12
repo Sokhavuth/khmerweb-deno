@@ -5,7 +5,6 @@ export default async () => {
     siteTitle: 'KW Blog Engine',
     pageTitle: '',
     message: '',
-    route: '',
   }
 
   return config
