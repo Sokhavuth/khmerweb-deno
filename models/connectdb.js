@@ -1,11 +1,9 @@
 // models/connectdb.ts
 
-import { config, MongoClient } from "../deps.ts"
+import { config, dango } from "../deps.ts"
 
-const env = await config()
+const { DATABASE_URI, DB_NAME } = await config()
 
-const client = await new MongoClient()
-await client.connect(env.DATABASE_URI)
-const mydb = client.database(env.DB_NAME)
+await dango.connect(DATABASE_URI)
 
-export default mydb
+export default dango
