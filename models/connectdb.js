@@ -2,7 +2,7 @@
 
 import { config, MongoClient } from "../deps.ts"
 
-const env = config()
+const env = await config()
 
 async function connectdb(){
   const client = new MongoClient()
