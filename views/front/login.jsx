@@ -15,9 +15,21 @@ function Login(props){
         <link href="/styles/base.css" rel="stylesheet" />
         <link href="/fonts/setup.css" rel="stylesheet" />
         <script src="/scripts/jquery.js"></script>
+        <link rel='stylesheet' href='/styles/front/login.css' />
       </head>
       <body>
-          {props.config.pageTitle}
+        <section class="Login">
+          <div class="wrapper">
+            <div class="title">ផ្ទៀងផ្ទាត់​ពាក្យ​សំងាត់​ចូល​គណនី​</div>
+            <form action="/login" method="post">
+              <a>Email:</a><input type="email" name="email" />
+              <a>ពាក្យ​សំងាត់ៈ</a><input type="password" name="password" />
+              <a></a><input type="submit" value="បញ្ជូន" />
+              <a></a><div class="info">{props.config.message}</div>
+            </form>
+          </div>
+          <a class="signup" href="/signup">ចុះ​ឈ្មោះ​ចុះ​ផ្សាយព័ត៌មាន (signup)</a>
+        </section>
       </body>
     </html>
   )
