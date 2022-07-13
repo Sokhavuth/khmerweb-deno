@@ -2,7 +2,7 @@
 
 export default async () => {
   let config = {
-    siteTitle: 'KW Blog Engine',
+    siteTitle: 'Deno.js Blog Engine',
     pageTitle: '',
     message: '',
   }
