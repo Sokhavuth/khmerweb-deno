@@ -54,6 +54,11 @@ class User{
     const users = req.mydb.collection<UserSchema>("users")
     await users.insertOne(newUser)
   }
+
+  async checkUser(req){
+    const query = {email:req.body.email}
+    return await req.mydb.collection<UserSchema>("users").findOne(query)
+  }
 }
 
 export default new User()

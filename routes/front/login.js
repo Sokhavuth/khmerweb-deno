@@ -9,4 +9,8 @@ router.get('/', async (req, res) => {
   login.getItem(req, res)
 })
 
+router.post('/', async (req, res) => {
+  login.checkUser(req, res)
+})
+
 export default router
