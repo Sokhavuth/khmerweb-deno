@@ -25,5 +25,5 @@ export {
 
 export { OpineSession } from 'https://deno.land/x/sessions@v1.5.4/mod.ts'
 
-import * as bcrypt from "https://deno.land/x/crypt@v0.1.0/bcrypt.ts"
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.3.0/mod.ts"
 export {bcrypt}
