@@ -24,3 +24,6 @@ export {
 } from "https://deno.land/x/mongo@v0.30.1/mod.ts"
 
 export { OpineSession } from 'https://deno.land/x/sessions@v1.5.4/mod.ts'
+
+import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.0/mod.ts"
+export {bcrypt}
