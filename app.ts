@@ -9,12 +9,12 @@ import {
   opine,
   serveStatic,
   urlencoded,
+  OpineSession,
 } from "./deps.ts"
 
 import indexRouter from "./routes/index.js"
 import adminRouter from "./routes/admin.js"
 import mydb from './models/connectdb.js'
-
 
 const app = opine()
 
@@ -24,6 +24,8 @@ app.use(async (req,res, next) => {
   req.mydb = await mydb
   next()
 })
+
+const session = new OpineSession(app, {})
 
 app.use(json())
 app.use(urlencoded())

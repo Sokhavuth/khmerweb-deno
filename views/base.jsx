@@ -2,13 +2,8 @@
 
 /** @jsx h */
 import { h } from "../deps.ts"
-import Home from './front/home.jsx'
 
 function Base(props){
-  if(props.config.route === '/'){
-    var Section = Home
-  }
-  
   return(
     <html>
       <head>
@@ -21,7 +16,7 @@ function Base(props){
         <script src="/scripts/jquery.js"></script>
       </head>
       <body>
-          <Section config={props.config} />
+          
       </body>
     </html>
   )

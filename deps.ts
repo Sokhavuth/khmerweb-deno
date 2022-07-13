@@ -22,3 +22,5 @@ export {
   Bson,
   MongoClient,
 } from "https://deno.land/x/mongo@v0.30.1/mod.ts"
+
+export { OpineSession } from 'https://deno.land/x/sessions@v1.5.4/mod.ts'
