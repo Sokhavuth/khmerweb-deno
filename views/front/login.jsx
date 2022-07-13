@@ -28,7 +28,6 @@ function Login(props){
               <a></a><div class="info">{props.config.message}</div>
             </form>
           </div>
-          <a class="signup" href="/signup">ចុះ​ឈ្មោះ​ចុះ​ផ្សាយព័ត៌មាន (signup)</a>
         </section>
       </body>
     </html>
