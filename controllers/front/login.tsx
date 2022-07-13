@@ -5,7 +5,7 @@ import { h, renderSSR } from "../../deps.ts"
 import config from '../../config.js'
 import Login_ from '../../views/front/login.jsx'
 import userdb from '../../models/users.ts'
-import { bcrypt } from '../../deps.ts'
+import { bcrypt, compareSync } from '../../deps.ts'
 
 class Login{
   async getItem(req, res){
@@ -26,7 +26,7 @@ class Login{
     
     if(user){
         if(user.role in {'Admin':1,'Editor':1,'Author':1}){
-            if(await bcrypt.compare(req.body.password, user.password)){
+            if(await bcrypt.compareSync(req.body.password, user.password)){
               await req.session.set("user", user)
               res.redirect('/admin/post')
             }else{
