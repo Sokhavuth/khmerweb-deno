@@ -3,7 +3,7 @@
 import { Router } from "../../deps.ts"
 const router = Router()
 
-import login from '../../controllers/front/login.jsx'
+import login from '../../controllers/front/login.tsx'
 
 router.get('/', async (req, res) => {
   login.getItem(req, res)
