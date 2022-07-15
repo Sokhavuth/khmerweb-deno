@@ -1,9 +1,11 @@
 // views/base.jsx
 
 /** @jsx h */
-import { h } from "../deps.ts"
+import { h, renderSSR } from "../deps.ts"
 
-function Base(props){
+function BaseJsx(props){
+  const Page = props.config.page
+  
   return(
     <html>
       <head>
@@ -16,10 +18,24 @@ function Base(props){
         <script src="/scripts/jquery.js"></script>
       </head>
       <body>
-          
+        <Page config={props.config} />
       </body>
     </html>
   )
+}
+
+async function Base(config){
+  if(config.route === '/'){
+    const module = await import('./front/home.jsx')
+    config.page = module.default
+  }else if(config.route === '/login'){
+    const module = await import('./front/login.jsx')
+    config.page = module.default
+  }
+
+  const str = renderSSR(<BaseJsx config={config} />)
+  const html = `<!DOCTYPE html>${str}`
+  return html
 }
 
 export default Base

@@ -3,7 +3,7 @@
 import { Router } from "../../deps.ts"
 const router = Router()
 
-import login from '../../controllers/front/login.jsx'
+import login from '../../controllers/front/login.js'
 
 router.get('/', async (req, res) => {
   if(await req.session.has('user')){

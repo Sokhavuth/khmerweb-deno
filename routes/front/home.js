@@ -3,7 +3,7 @@
 import { Router } from "../../deps.ts"
 const router = Router()
 
-import home from '../../controllers/front/home.jsx'
+import home from '../../controllers/front/home.js'
 
 router.get('/', async (req, res) => {
   home.getItem(req, res)

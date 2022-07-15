@@ -1,9 +1,7 @@
 // controllers/front/home.jsx
 
-/** @jsx h */
-import { h, renderSSR } from "../../deps.ts"
 import config from '../../config.js'
-import Home_ from '../../views/front/home.jsx'
+import Base from '../../views/base.jsx'
 
 class Home{
   async getItem(req, res){
@@ -11,8 +9,7 @@ class Home{
     this.config.pageTitle = 'ទំព័រ​ដើម'
     this.config.route = '/'
 
-    const str = renderSSR(<Home_ config={this.config} />)
-    const html = `<!DOCTYPE html>${str}`
+    const html = await Base(this.config)
     res.send(html)
   }
 }
