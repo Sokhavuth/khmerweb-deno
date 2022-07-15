@@ -1,7 +1,7 @@
 // controllers/front/home.jsx
 
 import config from '../../config.js'
-import Base from '../../views/base.jsx'
+import _Home from '../../views/front/home.jsx'
 
 class Home{
   async getItem(req, res){
@@ -9,7 +9,7 @@ class Home{
     this.config.pageTitle = 'ទំព័រ​ដើម'
     this.config.route = '/'
 
-    const html = await Base(this.config)
+    const html = await _Home(this.config)
     res.send(html)
   }
 }

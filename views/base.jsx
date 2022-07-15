@@ -25,14 +25,6 @@ function BaseJsx(props){
 }
 
 async function Base(config){
-  if(config.route === '/'){
-    const module = await import('./front/home.jsx')
-    config.page = module.default
-  }else if(config.route === '/login'){
-    const module = await import('./front/login.jsx')
-    config.page = module.default
-  }
-
   const str = renderSSR(<BaseJsx config={config} />)
   const html = `<!DOCTYPE html>${str}`
   return html

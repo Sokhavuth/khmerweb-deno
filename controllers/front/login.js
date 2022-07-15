@@ -1,7 +1,7 @@
 // controllers/front/login.jsx
 
 import config from '../../config.js'
-import Base from '../../views/base.jsx'
+import _Login from '../../views/front/login.jsx'
 import userdb from '../../models/users.ts'
 import { bcrypt } from '../../deps.ts'
 
@@ -11,7 +11,7 @@ class Login{
     this.config.pageTitle = 'ទំព័​ចូល​ក្នុង'
     this.config.route = '/login'
 
-    const html = await Base(this.config)
+    const html = await _Login(this.config)
     res.send(html)
   }
 
@@ -30,21 +30,21 @@ class Login{
               this.config.message = 'ពាក្យ​សំងាត់​មិន​ត្រឹមត្រូវ​ទេ'
               this.config.route = '/login'
 
-              const html = await Base(this.config)
+              const html = await _Login(this.config)
               res.send(html)
             }
         }else if(user.role in {'subscriber':1}){
           this.config.message = 'សូម​ចុច​បញ្ជាក់ការចុះ​ឈ្មោះ​ក្នុង Email របស់​អ្នក​'
           this.config.route = '/login'
 
-          const html = await Base(this.config)
+          const html = await _Login(this.config)
           res.send(html)
         }
     }else{
       this.config.message = 'Email មិន​ត្រឹមត្រូវទេ'
       this.config.route = '/login'
 
-      const html = await Base(this.config)
+      const html = await _Login(this.config)
       res.send(html)
     }
   }
