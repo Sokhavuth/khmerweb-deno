@@ -3,10 +3,14 @@
 import { Router } from "../../deps.ts"
 const router = Router()
 
-import login from '../../controllers/front/login.tsx'
+import login from '../../controllers/front/login.jsx'
 
 router.get('/', async (req, res) => {
-  login.getItem(req, res)
+  if(await req.session.has('user')){
+    res.redirect('/admin/post')
+  }else{
+    login.getItem(req, res)
+  }
 })
 
 router.post('/', async (req, res) => {

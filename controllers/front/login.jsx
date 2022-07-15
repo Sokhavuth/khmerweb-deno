@@ -5,7 +5,7 @@ import { h, renderSSR } from "../../deps.ts"
 import config from '../../config.js'
 import Login_ from '../../views/front/login.jsx'
 import userdb from '../../models/users.ts'
-import { bcrypt, compareSync } from '../../deps.ts'
+import { bcrypt } from '../../deps.ts'
 
 class Login{
   async getItem(req, res){
