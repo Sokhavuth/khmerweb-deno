@@ -1,39 +1,37 @@
 /* static/admin/post.css */
-.Post form input,.Post form select,
-.Post .form input,.Post .form select{
-    font: var(--body-font);
-    padding: 2px 5px;
-    width: 100%;
-}
 
 .Post form .ck-editor__editable{
     min-height: 300px;
 }
 
-.Post form .wrapper,.Post .form{
+.Post .header{
+    background: var(--background-dark);
+    color: white;
+    border-bottom: 7px solid white;
+}
+
+.Post .header .inner{
     display: grid;
-    grid-template-columns: 25% 30% auto 15%;
+    grid-template-columns: 25% auto 25%;
+    align-items: center;
+    padding: 7px;
 }
 
-.Post table {
-    margin-top: 0px;
-    width: 100%;
-    border-collapse: collapse;
+.Post .header .inner .logo{
+    font: 25px/1.5 Oswald, Limonf3;
 }
 
-.Post table, td, th {
-    border: 1px solid black;
-    background: white;
-    color: black;
-    text-align: center;
-    padding: 5px;
+.Post .header .inner form{
+    display: grid;
+    grid-template-columns: 20% auto 20%;
 }
 
-.Post table, th {
-    background: #ddd;
+.Post .header .inner form input,
+.Post .header .inner form select{
+    font: var(--body-font);
+    padding: 2px 5px;
 }
 
-.Post table .episode:hover{
-    cursor: pointer;
-    color: red;
+.Post .header .inner .logout{
+    text-align: right;
 }

@@ -18,7 +18,21 @@ function PostJsx(props){
       </head>
       <body>
         <section class="Post">
-            {props.config.pageTitle}
+            <div class="header">
+                <div class="inner region">
+                    <div class="logo">{props.config.pageTitle}</div>
+                    <form action="/admin/search" method="post">
+                        <select name="searchType">
+                            <option>ការផ្សាយ</option>
+                        </select>
+                        <input type="text" name="q" required placeholder="Search" />
+                        <input type="submit" value="ស្វែង​រក" />
+                    </form>
+                    <div class="logout">
+                        <a href="/">ទំព័រ​មុខ</a> | <a href="/login/logout">ចេញ​ក្រៅ</a>
+                    </div>
+                </div>
+            </div>
         </section>
       </body>
     </html>

@@ -39,6 +39,12 @@ class Login{
 
           const html = await _Login(this.config)
           res.send(html)
+        }else{
+          this.config.message = 'អ្នក​គ្មាន​ឈ្មោះ​ក្នុង​បញ្ជី​ទេ​'
+          this.config.route = '/login'
+
+          const html = await _Login(this.config)
+          res.send(html)
         }
     }else{
       this.config.message = 'Email មិន​ត្រឹមត្រូវទេ'
