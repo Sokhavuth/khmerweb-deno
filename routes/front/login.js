@@ -6,7 +6,7 @@ const router = Router()
 import login from '../../controllers/front/login.js'
 
 router.get('/', async (req, res) => {
-  if(await req.session.has('usersx')){
+  if(await req.session.has('user')){
     res.redirect('/admin/post')
   }else{
     login.getItem(req, res)
