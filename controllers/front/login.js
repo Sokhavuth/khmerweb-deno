@@ -10,7 +10,7 @@ class Login{
     this.config = await config()
     this.config.pageTitle = 'ទំព័​ចូល​ក្នុង'
     this.config.route = '/login'
-
+    
     const html = await _Login(this.config)
     res.send(html)
   }
@@ -22,7 +22,7 @@ class Login{
     let user = await userdb.checkUser(req)
     
     if(user){
-        if(user.role in {'Admin':1,'Editor':1,'Author':1}){
+        if(user.role in {'Admin':1,'Editor':1,'Author':1,"guest":1}){
             if(await bcrypt.compareSync(req.body.password, user.password)){
               await req.session.set("user", user)
               res.redirect('/admin/post')

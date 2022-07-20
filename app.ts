@@ -13,7 +13,7 @@ import {
 
 import indexRouter from "./routes/index.js"
 import adminRouter from "./routes/admin.js"
-import mydb from './models/connectdb.js'
+import { mydb } from './models/connectdb.js'
 
 const app = opine()
 

@@ -1,9 +1,9 @@
-// views/front/home.jsx
+// views/admin/post.jsx
 
 /** @jsx h */
 import { h, renderSSR } from "../../deps.ts"
 
-function HomeJsx(props){
+function PostJsx(props){
   return(
     <html>
       <head>
@@ -14,10 +14,10 @@ function HomeJsx(props){
         <link href="/styles/base.css" rel="stylesheet" />
         <link href="/fonts/setup.css" rel="stylesheet" />
         <script src="/scripts/jquery.js"></script>
-        <link rel="stylesheet" href="/styles/front/home.css" />
+        <link rel="stylesheet" href="/styles/admin/post.css" />
       </head>
       <body>
-        <section class="Home">
+        <section class="Post">
             {props.config.pageTitle}
         </section>
       </body>
@@ -25,10 +25,10 @@ function HomeJsx(props){
   )
 }
 
-function Home(config){
-  const str = renderSSR(<HomeJsx config={config} />)
+function Post(config){
+  const str = renderSSR(<PostJsx config={config} />)
   const html = `<!DOCTYPE html>${str}`
   return html
 }
 
-export default Home
+export default Post

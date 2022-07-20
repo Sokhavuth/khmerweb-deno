@@ -1,10 +1,10 @@
-import { Router } from "../deps.ts";
+// routes/admin.js
 
-const router = Router();
+import { Router } from "../deps.ts"
 
-// GET users listing.
-router.get("/", (_req, res, _next) => {
-  res.send("Users are coming shortly!");
-});
+const router = Router()
 
-export default router;
+import post from './admin/post.js'
+router.use('/post', post)
+
+export default router
