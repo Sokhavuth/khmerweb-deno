@@ -1,7 +1,7 @@
 // controllers/admin/post.js
 
 import config from '../../config.js'
-import post from '../../views/admin/post.jsx'
+import post from '../../views/admin/post.js'
 
 class Post{
     async getItem(req, res){
