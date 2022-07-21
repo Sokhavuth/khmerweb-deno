@@ -10,7 +10,7 @@ class Login{
     this.config = await config()
     this.config.pageTitle = 'ទំព័​ចូល​ក្នុង'
     this.config.route = '/login'
-    //userdb.createRootUser(req)
+    
     const html = await _Login(this.config)
     res.send(html)
   }

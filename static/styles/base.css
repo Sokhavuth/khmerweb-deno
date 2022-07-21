@@ -4,7 +4,7 @@
     --background: grey;
     --background-dark: #272727;
     --body-font: 14px/1.5 Vidaloka, OdorMeanChey;
-    --link: orange;
+    --link: lavender;
     --color: black;
 }
   
@@ -28,5 +28,5 @@ a:hover{
 body{
     color: var(--color);
     font: var(--body-font);
-    background: var(--background);
+    background: var(--background-light);
 }

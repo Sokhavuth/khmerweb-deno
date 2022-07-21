@@ -1,13 +1,10 @@
 /* static/admin/post.css */
 
-.Post form .ck-editor__editable{
-    min-height: 300px;
-}
-
 .Post .header{
     background: var(--background-dark);
     color: white;
     border-bottom: 7px solid white;
+    margin-bottom: 20px;
 }
 
 .Post .header .inner{
@@ -34,4 +31,50 @@
 
 .Post .header .inner .logout{
     text-align: right;
+}
+
+.Post .main{
+    display: grid;
+    grid-template-columns: auto 75%;
+    grid-gap: 10px;
+}
+
+.Post .main .sidebar{
+    background: var(--background);
+    padding: 20px;
+}
+
+.Post .main .sidebar .inner{
+    display: grid;
+    grid-template-columns: 25% auto;
+    grid-gap: 15px;
+    align-items: center;
+}
+
+.Post .main .sidebar .inner img{
+    width: 100%;
+    float: left;
+}
+
+.Post .main .sidebar .inner .title{
+    font: 18px/1.5 Oswald, Bayon;
+}
+
+.Post .main .content form input,
+.Post .main .content form select,
+.Post .main .content .wrapper input,
+.Post .main .content .wrapper select{
+    width: 100%;
+    font: var(--body-font);
+    padding: 2px 5px;
+}
+
+.Post .main .content form .ck-editor__editable{
+    min-height: 300px;
+}
+
+.Post .main .content form .wrapper,
+.Post .main .content .wrapper{
+    display: grid;
+    grid-template-columns: 20% 32.5% 32.5% 15%;
 }

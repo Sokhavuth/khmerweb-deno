@@ -1,4 +1,5 @@
 // static/scripts/addCategory.js 
+
 const getCategory = () => {
     const category = $('#category option:selected').text()
     $('select').prop('selectedIndex',0)
