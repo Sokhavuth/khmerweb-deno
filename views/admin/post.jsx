@@ -1,27 +1,21 @@
 // views/admin/post.jsx
+
+/** @jsx h */
+import { h, renderSSR } from "../../deps.ts"
+import Base from '../base.jsx'
   
-function postJsx(config){
-  const  str = `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>${config.siteTitle} | ${config.pageTitle}</title>
-        <link href="/images/siteLogo.png" rel="icon" />
-        <link href="/styles/base.css" rel="stylesheet" />
-        <link href="/fonts/setup.css" rel="stylesheet" />
-        <script src="/scripts/jquery.js"></script>
-        <link rel="stylesheet" href="/styles/admin/post.css" />
-        <script src="/scripts/ckeditor/ckeditor.js"></script>
-        <script src="/scripts/addCategory.js"></script>
-        <script src="/scripts/video.js"></script>
-      </head>
-      <body>
+function PostJsx(props){
+
+  return(
         <section class="Post">
+            <link rel="stylesheet" href="/styles/admin/post.css" />
+            <script src="/scripts/ckeditor/ckeditor.js"></script>
+            <script src="/scripts/addCategory.js"></script>
+            <script src="/scripts/video.js"></script>
+
             <div class="header">
                 <div class="inner region">
-                    <div class="logo">${config.pageTitle}</div>
+                    <div class="logo">{props.config.pageTitle}</div>
                     <form action="/admin/search" method="post">
                         <select name="searchType">
                             <option>ការផ្សាយ</option>
@@ -58,25 +52,28 @@ function postJsx(config){
                 </div>
               </div>
               <div class="content">
-                <form action="/admin/post" method="post">
+                <form action="/admin/post" name="pform" method="post">
                   <input type="text" name="title" required placeholder="ចំណងជើង" />
                   <textarea name="content" id="editor"></textarea>
                   <input type="text" name='categories' required placeholder="ជំពូកផ្សេង​ៗ" />
-                  <div class="wrapper">
-                    <select onChange="getCategory()" id="category">
-                      <option>Select categories</option>
-                      <option>News</option>
-                      <option>Movie</option>
-                      <option>Entertainment</option>
-                      <option>Sport</option>
-                    </select>
+                  <div class="wrapper" 
+                  dangerouslySetInnerHTML={{__html: `
+                  <select id="category" onchange="getCategory()">
+                    <option>Select categories</option>
+                    <option>News</option>
+                    <option>Movie</option>
+                    <option>Entertainment</option>
+                    <option>Sport</option>
+                  </select>
+                  `}}>
+            
                     <input type="text" name="thumb" required placeholder="តំណរ​ភ្ជាប់​រូប​តំណាង" />
                     <input type="datetime-local" name="datetime" required />
-                    <input type="submit" value="បញ្ជូន" />
-                    <input type="hidden" name="video" />
+                    <a class='submit' href="javascript: submitform()">បញ្ជូន</a>
+                    <input type="hidden" name="video" value="" />
                   </div>
                 </form>
-                <div class="wrapper">
+                <div class="wrapper" >
                   <select name="type">
                     <option>YouTube</option>
                     <option>YouTubePL</option>
@@ -85,26 +82,30 @@ function postJsx(config){
                   </select>
                   <input type="text" name="videoid" required placeholder="អត្តសញ្ញាណ​វីដេអូ" />
                   <select name="status">
-                    <option>End</option>
-                    <option>Continue</option>
+                    <option>ចប់</option>
+                    <option>នៅ​មាន​ត</option>
                   </select>
-                  <input type="submit" value="បញ្ចូល​វីដេអូ" />
+                  <div dangerouslySetInnerHTML={{__html: `
+                     <input onclick='genJson()' type="submit" value="បញ្ចូល​វីដេអូ" />
+                  `}} />
                 </div>
-
+                <div class='viddata'>
+                  <div></div>
+                </div>
+                
+                <script src="/scripts/ckeditor/config.js"></script>
               </div>
-              <script src="/scripts/ckeditor/config.js"></script>
+              
             </div>
 
         </section>
-      </body>
-    </html>
-    `
-    return str
+  )
 }
 
 function Post(config){
-  const html = postJsx(config)
-  return html
+  config.page = PostJsx
+  const str = renderSSR(<Base config={config} />)
+  return `<!DOCTYPE html>${str}`
 }
 
 export default Post

@@ -3,7 +3,7 @@
 /** @jsx h */
 import { h, renderSSR } from "../deps.ts"
 
-function BaseJsx(props){
+function Base(props){
   const Page = props.config.page
   
   return(
@@ -22,12 +22,6 @@ function BaseJsx(props){
       </body>
     </html>
   )
-}
-
-async function Base(config){
-  const str = renderSSR(<BaseJsx config={config} />)
-  const html = `<!DOCTYPE html>${str}`
-  return html
 }
 
 export default Base
