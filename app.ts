@@ -16,15 +16,15 @@ import adminRouter from "./routes/admin.js"
 import { mydb } from './models/connectdb.js'
 
 const app = opine()
+const session = new OpineSession(app)
 
 const __dirname = fromFileUrl(dirname(import.meta.url))
 
-app.use(async (req,res, next) => {
+app.use(async (req, res, next) => {
   req.mydb = await mydb
+  req.session = session
   next()
 })
-
-const session = new OpineSession(app, {})
 
 app.use(json())
 app.use(urlencoded())

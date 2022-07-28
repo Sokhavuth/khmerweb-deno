@@ -2,7 +2,7 @@
 
 export default async () => {
   let config = {
-    siteTitle: 'Deno.js Blog Engine',
+    siteTitle: 'Opine Blog',
     pageTitle: '',
     message: '',
   }

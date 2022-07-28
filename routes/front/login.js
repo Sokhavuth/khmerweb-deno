@@ -1,4 +1,4 @@
-// routes/fron/login.js
+// routes/front/login.js
 
 import { Router } from "../../deps.ts"
 const router = Router()
@@ -6,7 +6,7 @@ const router = Router()
 import login from '../../controllers/front/login.js'
 
 router.get('/', async (req, res) => {
-  if(await req.session.get('user') !== undefined){
+  if(await req.session.get("user") === "logged-in"){
     res.redirect('/admin/post')
   }else{
     login.getItem(req, res)
@@ -18,7 +18,9 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/logout', async (req, res) => {
-  await req.session.set('user', undefined)
+  if(await req.session.get("user") === "logged-in"){
+    await req.session.set("user", null)
+  }
   res.redirect('/')
 })
 

@@ -51,28 +51,26 @@ function PostJsx(props){
                   <a class="title" href="/admin/setting">Setting</a>
                 </div>
               </div>
-              <div class="content">
-                <form action="/admin/post" name="pform" method="post">
+              <div class="content" dangerouslySetInnerHTML={{__html: `
+                <form action="/admin/post" name="pform" onSubmit="submitform(event)" method="post">
                   <input type="text" name="title" required placeholder="ចំណងជើង" />
                   <textarea name="content" id="editor"></textarea>
                   <input type="text" name='categories' required placeholder="ជំពូកផ្សេង​ៗ" />
-                  <div class="wrapper" 
-                  dangerouslySetInnerHTML={{__html: `
+                  <div class="wrapper"> 
                   <select id="category" onchange="getCategory()">
-                    <option>Select categories</option>
+                    <option>ជ្រើសរើស​ជំពូក</option>
                     <option>News</option>
                     <option>Movie</option>
                     <option>Entertainment</option>
                     <option>Sport</option>
                   </select>
-                  `}}>
-            
-                    <input type="text" name="thumb" required placeholder="តំណរ​ភ្ជាប់​រូប​តំណាង" />
-                    <input type="datetime-local" name="datetime" required />
-                    <a class='submit' href="javascript: submitform()">បញ្ជូន</a>
-                    <input type="hidden" name="video" value="" />
+                  <input type="text" name="thumb" required placeholder="តំណរ​ភ្ជាប់​រូប​តំណាង" />
+                  <input type="datetime-local" name="datetime" required />
+                  <input type="submit" value="បញ្ជូន" />
+                  <input type="hidden" name="video" value="" />
                   </div>
                 </form>
+                `}}>
                 <div class="wrapper" >
                   <select name="type">
                     <option>YouTube</option>

@@ -1,3 +1,5 @@
+// static/scripts/video.js
+
 var episode = 0
 
 const genJson = () => {
@@ -60,22 +62,27 @@ const genJson = () => {
     }
 }
 
-function submitform(){
-    let videos = []
-    let part = {}
-    let key = {0:'type', 1:'id', 2:'status'}
-    
-    for(let v=1; v<=episode; v++){
-        for(let j=0; j<3; j++){
-            part[key[j]] = $(`.viddata div:eq(${v}) input:eq(${j})`).val()
-        }
+function submitform(e){
+    e.preventDefault()
+    const is_video = $('input[name="video"').val()
 
-        videos.push({...part})
+    if((is_video !== '') && (is_video !== '[]')){
+        let videos = []
+        let part = {}
+        let key = {0:'type', 1:'id', 2:'status'}
+
+        for(let v=1; v<=episode; v++){
+            for(let j=0; j<3; j++){
+                part[key[j]] = $(`.viddata div:eq(${v}) input:eq(${j})`).val()
+            }
+
+            videos.push({...part})
+        }
+    
+        const json = JSON.stringify(videos)
+        $('input[name="video"').val(json)
     }
     
-    const json = JSON.stringify(videos)
-    $('input[name="video"').val(json)
-
     document.forms["pform"].submit()
 }
 
