@@ -84,10 +84,11 @@ body{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: var(--link);
 }
 
 .Footer ul li .title a{
-    color: black;
+    color: var(--link);
 }
 
 .Footer ul li .edit{
@@ -119,4 +120,8 @@ body{
 .Footer .credit{
     text-align: center;
     padding: 0 0 20px;
+}
+
+.Footer .credit a{
+    color: teal;
 }

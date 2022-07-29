@@ -6,6 +6,8 @@ export default async () => {
     pageTitle: '',
     message: '',
     adminItemLimit: 10,
+    count: 0,
+    items: 0,
   }
 
   return config
