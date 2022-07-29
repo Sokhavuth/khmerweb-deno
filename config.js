@@ -5,6 +5,7 @@ export default async () => {
     siteTitle: 'Opine Blog',
     pageTitle: '',
     message: '',
+    adminItemLimit: 10,
   }
 
   return config

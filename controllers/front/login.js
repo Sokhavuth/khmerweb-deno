@@ -3,7 +3,8 @@
 import config from '../../config.js'
 import _Login from '../../views/front/login.jsx'
 import userdb from '../../models/users.ts'
-import { bcrypt } from '../../deps.ts'
+import { bcrypt, config as configure } from '../../deps.ts'
+await configure({export: true})
 
 class Login{
   async getItem(req, res){
@@ -24,7 +25,8 @@ class Login{
     if(user){
         if(user.role in {'Admin':1,'Editor':1,'Author':1,"guest":1}){
             if(await bcrypt.compareSync(req.body.password, user.password)){
-              await req.session.set("user", "logged-in")
+              await req.session.set("user", `__logged-in__${Deno.env.get('SECRET_KEY')}`)
+              await req.session.set("user-role", user.role)
               res.redirect('/admin/post')
             }else{
               this.config.message = 'ពាក្យ​សំងាត់​មិន​ត្រឹមត្រូវ​ទេ'

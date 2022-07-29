@@ -82,6 +82,7 @@ function PostJsx(props){
                   <select name="status">
                     <option>ចប់</option>
                     <option>នៅ​មាន​ត</option>
+                    <option>~ ចប់</option>
                   </select>
                   <div dangerouslySetInnerHTML={{__html: `
                      <input onclick='genJson()' type="submit" value="បញ្ចូល​វីដេអូ" />

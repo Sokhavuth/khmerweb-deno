@@ -13,6 +13,11 @@ interface PostSchema {
 }
 
 class Postdb{
+    async count(req, query={}){
+        const posts = req.mydb.collection<PostSchema>("posts")
+        return await posts.countDocuments(query)
+    }
+
     async insertPost(req){
         const id = Date.now() + Math.round(Math.random() * 1E9).toString()
 
@@ -37,6 +42,11 @@ class Postdb{
  
         const posts = req.mydb.collection<PostSchema>("posts")
         await posts.insertOne(newPost)
+    }
+
+    async getItem(req, amount, query={}){
+        const posts = req.mydb.collection<PostSchema>("posts")
+        return await posts.find().sort({date:-1,_id:-1}).limit(amount).toArray()
     }
 }
 

@@ -11,13 +11,16 @@ class Post{
         this.config.route = '/admin/post'
         this.config.type = 'post'
 
+        this.config.count = await postdb.count(req)
+        this.config.items = await postdb.getItem(req, this.config.adminItemLimit)
+        
         const html = await post(this.config)
         res.send(html)
     }
 
     async postItem(req, res){
-        const user = await req.session.get('user')
-        if(user.role in {'Admin':1,'Editor':1,'Author':1}){
+        const user_role = await req.session.get('user-role')
+        if(user_role in {'Admin':1,'Editor':1,'Author':1}){
             await postdb.insertPost(req)
         }
 

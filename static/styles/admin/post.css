@@ -37,7 +37,7 @@
     display: grid;
     grid-template-columns: auto 75%;
     grid-gap: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 .Post .main .sidebar{
