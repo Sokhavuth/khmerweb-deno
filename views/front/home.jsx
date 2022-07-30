@@ -18,7 +18,7 @@ function HomeJsx(props){
       </head>
       <body>
         <section class="Home">
-            {props.config.pageTitle}
+            <a style="color: teal;"  href="/admin/post">​​​​​​​​​​ចូលក្នុង</a>
         </section>
       </body>
     </html>

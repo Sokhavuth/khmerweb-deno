@@ -1,13 +1,12 @@
 // routes/admin/post.js
 
-import { Router, config } from "../../deps.ts"
+import { Router, verify } from "../../deps.ts"
 const router = Router()
-await config({export: true})
 
 import post from '../../controllers/admin/post.js'
 
 router.get('/', async (req, res) => {
-  if(await req.session.get("user") === `__logged-in__${Deno.env.get('SECRET_KEY')}`){
+  if(await req.session.get("user") === (await verify(req.myjwt, req.mykey)).user){
     post.getItem(req, res)
   }else{
     res.redirect('/login')
@@ -15,7 +14,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  if(await req.session.get("user") === `__logged-in__${Deno.env.get('SECRET_KEY')}`){
+  if(await req.session.get("user") === (await verify(req.myjwt, req.mykey)).user){
     post.postItem(req, res)
   }else{
     res.redirect('/login')

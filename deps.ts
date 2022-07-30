@@ -23,7 +23,9 @@ export {
   MongoClient,
 } from "https://deno.land/x/mongo@v0.30.1/mod.ts"
 
-export { OpineSession } from "https://deno.land/x/sessions@v1.5.4/mod.ts"
+export { create,verify } from "https://deno.land/x/djwt@v2.7/mod.ts"
+export { OpineSession, RedisStore } from "https://deno.land/x/sessions@v1.5.4/mod.ts"
+export { connect } from 'https://deno.land/x/redis@v0.26.0/mod.ts'
 
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.4.0/mod.ts"
 export {bcrypt}

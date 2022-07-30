@@ -13,16 +13,21 @@ import {
 
 import indexRouter from "./routes/index.js"
 import adminRouter from "./routes/admin.js"
-import { mydb } from './models/connectdb.js'
+import { mydb, mykey, myjwt, myuser, myredis} from './models/connectdb.js'
 
 const app = opine()
-const session = new OpineSession(app)
+//const session = new OpineSession(app)
+
+const session = new OpineSession(app, {}, myredis)
 
 const __dirname = fromFileUrl(dirname(import.meta.url))
 
 app.use(async (req, res, next) => {
   req.mydb = await mydb
   req.session = session
+  req.mykey = await mykey
+  req.myjwt = await myjwt
+  req.myuser = await myuser
   next()
 })
 
