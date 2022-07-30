@@ -20,5 +20,21 @@ router.post('/', async (req, res) => {
     res.redirect('/login')
   }
 })
+
+router.get('/edit/:id', async (req, res) => {
+  if(await req.session.get("user") === (await verify(req.myjwt, req.mykey)).user){
+    post.getItem(req, res)
+  }else{
+    res.redirect('/login')
+  }
+})
+
+router.post('/edit/:id', async (req, res) => {
+  if(await req.session.get("user") === (await verify(req.myjwt, req.mykey)).user){
+    post.editItem(req, res)
+  }else{
+    res.redirect('/login')
+  }
+})
   
 export default router

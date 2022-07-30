@@ -18,16 +18,16 @@ class User{
   async createRootUser(req){
     const id = Date.now() + Math.round(Math.random() * 1E9).toString()
     const salt = await bcrypt.genSalt(8)
-    const hashPassword = bcrypt.hashSync('xxxxxxxxxxxxxxx', salt)
+    const hashPassword = bcrypt.hashSync('xxxxxxxxxxxxxxxx', salt)
 
     let newUser = {
       id: id, 
-      title: 'Guest',
+      title: 'Vuth',
       content: '',
       thumb: '',
       postdate: '',
-      role: 'guest',
-      email: 'guest@khmerweb.app',
+      role: 'Author',
+      email: 'vuth@khmerweb.app',
       password: hashPassword,
     }
  

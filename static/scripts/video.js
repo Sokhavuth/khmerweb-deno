@@ -3,6 +3,10 @@
 var episode = 0
 
 const genJson = () => {
+    let json = $('input[name="video"]').val()
+    json = JSON.parse(json)
+    episode = json.length
+
     const type = $('select[name="type"').val()
     const id = $('input[name="videoid"').val()
     const status = $('select[name="status"').val()
@@ -67,6 +71,7 @@ function submitform(e){
     const is_video = $('input[name="video"').val()
 
     if((is_video !== '') && (is_video !== '[]')){
+        episode = JSON.parse(is_video).length
         let videos = []
         let part = {}
         let key = {0:'type', 1:'id', 2:'status'}
@@ -94,10 +99,10 @@ function deleteRow(e) {
     let json = $('input[name="video"]').val()
     json = JSON.parse(json)
     json.splice(index, 1)
+    episode = json.length
     json = JSON.stringify(json)
     $('input[name="video"').val(json)
 
-    episode -= 1
     for(let v=episode; v>-1; v--){
         $('.episode').eq(v).html(episode-v)
     }

@@ -12,7 +12,14 @@ class Post{
         this.config.type = 'post'
 
         this.config.count = await postdb.count(req)
-        this.config.items = await postdb.getItem(req, this.config.adminItemLimit)
+        const {item, items} = await postdb.getItem(req, this.config.adminItemLimit)
+
+        if(item){
+            await req.session.set('post-userid', item.userid)
+        }
+
+        this.config.item = item
+        this.config.items = items
         
         const html = await post(this.config)
         res.send(html)
@@ -22,6 +29,21 @@ class Post{
         const user_role = await req.session.get('user-role')
         if(user_role in {'Admin':1,'Editor':1,'Author':1}){
             await postdb.insertPost(req)
+        }
+
+        res.redirect('/admin/post')
+    }
+
+    async editItem(req, res){
+        const user_role = await req.session.get('user-role')
+        if(user_role in {'Admin':1,'Editor':1,'Author':1}){
+
+            const user_id = await req.session.get('user-id')
+            const post_userid = await req.session.get('post-userid')
+            
+            if((user_role === 'Admin') || (user_id === post_userid)){
+                await postdb.editPost(req)
+            }
         }
 
         res.redirect('/admin/post')

@@ -26,6 +26,7 @@ class Login{
             if(await bcrypt.compareSync(req.body.password, user.password)){
               await req.session.set("user", req.myuser)
               await req.session.set("user-role", user.role)
+              await req.session.set("user-id", user.id)
               res.redirect('/admin/post')
             }else{
               this.config.message = 'ពាក្យ​សំងាត់​មិន​ត្រឹមត្រូវ​ទេ'

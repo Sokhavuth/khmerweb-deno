@@ -27,7 +27,7 @@ class Postdb{
             var categories: string[] = [req.body.categories]
         }
 
-        const user = await req.session.get('user')
+        const user_id = await req.session.get('user-id')
         
         let newPost = {
             id: id, 
@@ -37,7 +37,7 @@ class Postdb{
             thumb: req.body.thumb,
             postdate: req.body.datetime,
             video: req.body.video,
-            userid: user.id,
+            userid: user_id,
         }
  
         const posts = req.mydb.collection<PostSchema>("posts")
@@ -46,7 +46,34 @@ class Postdb{
 
     async getItem(req, amount, query={}){
         const posts = req.mydb.collection<PostSchema>("posts")
-        return await posts.find().sort({date:-1,_id:-1}).limit(amount).toArray()
+        let item = null
+
+        if(req.params.id){
+            item = await posts.findOne({id: req.params.id})
+        }
+
+        const items = await posts.find(query).sort({date:-1,_id:-1}).limit(amount).toArray()
+        return {item:item, items:items}
+    }
+
+    async editPost(req){
+        if(req.body.categories.includes(',')){
+            var categories: string[] = req.body.categories.split(',')
+        }else{
+            var categories: string[] = [req.body.categories]
+        }
+
+        let editPost = {$set:{
+            title: req.body.title,
+            content: req.body.content,
+            categories: categories,
+            thumb: req.body.thumb,
+            postdate: req.body.datetime,
+            video: req.body.video,
+        }}
+        
+        const posts = req.mydb.collection<PostSchema>("posts")
+        await posts.updateOne({id: req.params.id}, editPost)
     }
 }
 

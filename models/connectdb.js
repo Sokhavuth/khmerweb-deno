@@ -1,6 +1,5 @@
 // models/connectdb.js
 
-
 import { config, MongoClient, create, RedisStore, connect } from "../deps.ts"
 
 await config({export: true})
@@ -11,10 +10,7 @@ const mydb = client.database(Deno.env.get('DB_NAME'))
 
 class RedisDB extends RedisStore {
   constructor(options) { 
-    super({
-      host: options.host,
-      port: options.port,
-    })
+    super(options)
     this.password = options.password
   }
 
