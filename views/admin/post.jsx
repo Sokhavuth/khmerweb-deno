@@ -73,7 +73,7 @@ function PostJsx(props){
       if($('.viddata div').html() === ''){
         $('.viddata div').append('<b>ប្រភេទ​</b>')
         $('.viddata div').append('<b>អត្តសញ្ញាណ​</b>')
-        $('.viddata div').append('<b>ចប់ឬ​នៅ?</b>')
+        $('.viddata div').append('<b>ស្ថានភាព</b>')
         $('.viddata div').append('<b>ភាគ/លុប</b>')
       }
     

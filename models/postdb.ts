@@ -75,6 +75,23 @@ class Postdb{
         const posts = req.mydb.collection<PostSchema>("posts")
         await posts.updateOne({id: req.params.id}, editPost)
     }
+
+    async deletePost(req){
+        const posts = req.mydb.collection<PostSchema>("posts")
+
+        if(req.params.id){
+            var item = await posts.findOne({id: req.params.id})
+        }
+
+        const user_id = await req.session.get('user-id')
+
+        const user_role = await req.session.get('user-role')
+        if(user_role in {'Admin':1,'Editor':1,'Author':1}){
+            if((user_role === 'Admin') || (user_id === item.userid)){
+                await posts.deleteOne({id: req.params.id})
+            }
+        }
+    }
 }
 
 export default new Postdb

@@ -48,6 +48,11 @@ class Post{
 
         res.redirect('/admin/post')
     }
+
+    async deleteItem(req, res){   
+        await postdb.deletePost(req)
+        res.redirect('/admin/post')
+    }
 }
 
 export default new Post()
