@@ -29,7 +29,7 @@ const myredis = new RedisDB({
   password: Deno.env.get('REDIS_PASSWORD'),
 })
 
-await myredis.init()
+//await myredis.init()
 
 const mykey = await crypto.subtle.generateKey(
   { name: "HMAC", hash: "SHA-512" },
@@ -40,4 +40,4 @@ const mykey = await crypto.subtle.generateKey(
 const myuser = `__logged-in__${Deno.env.get('SECRET_KEY')}`
 const myjwt = await create({ alg: "HS512", typ: "JWT" }, { user: myuser }, mykey)
 
-export { mydb, mykey, myjwt, myuser, myredis }
+export { mydb, mykey, myjwt, myuser }

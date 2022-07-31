@@ -16,9 +16,9 @@ import adminRouter from "./routes/admin.js"
 import { mydb, mykey, myjwt, myuser, myredis} from './models/connectdb.js'
 
 const app = opine()
-//const session = new OpineSession(app)
+const session = new OpineSession(app)
 
-const session = new OpineSession(app, {}, myredis)
+//const session = new OpineSession(app, {}, myredis)
 
 const __dirname = fromFileUrl(dirname(import.meta.url))
 
