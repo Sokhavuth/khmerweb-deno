@@ -81,6 +81,7 @@ function PostJsx(props){
 
                 <script dangerouslySetInnerHTML={{__html: `
                     const videos = JSON.parse('${ props.config.post.video }')
+                    videos.reverse()
                     
                     let clicked = 0
                     
