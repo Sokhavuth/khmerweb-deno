@@ -104,4 +104,8 @@
     .Home header .inner .title{
         text-align: center;
     }
+
+    .Home .main, .Home .main .content .post{
+        grid-template-columns: 100%;
+    }
 }
