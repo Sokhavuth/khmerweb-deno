@@ -2,7 +2,7 @@
 
 export default async () => {
   let config = {
-    siteTitle: 'Opine Blog',
+    siteTitle: 'ពហុព័ត៌មាន',
     pageTitle: '',
     message: '',
     adminItemLimit: 10,

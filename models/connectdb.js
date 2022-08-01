@@ -22,13 +22,13 @@ class RedisDB extends RedisStore {
     })
   }
 }
-
+/*
 const myredis = new RedisDB({
   host: Deno.env.get('REDIS_URI'),
   port: parseInt(Deno.env.get('REDIS_PORT')),
   password: Deno.env.get('REDIS_PASSWORD'),
 })
-
+*/
 //await myredis.init()
 
 const mykey = await crypto.subtle.generateKey(

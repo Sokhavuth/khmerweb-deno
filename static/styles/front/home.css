@@ -1,0 +1,106 @@
+/* static/styles/front/home.css */
+
+.Home header{
+    background: var(--background-dark);
+    color: white;
+}
+
+.Home header .inner{
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.Home header .inner .title{
+    font: 35px/1.5 Oswald, Limonf3;
+}
+
+.Home header .inner form{
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+}
+
+.Home header .inner form input,
+.Home header .inner form select{
+    font: var(--body-font);
+    padding: 2px 5px;
+}
+
+.Home header .inner .login{
+    text-align: right;
+}
+
+.Home .menu{
+    background: var(--background);
+    margin-bottom: 20px;
+}
+
+.Home .main{
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-gap: 15px;
+    margin-bottom: 30px;
+}
+
+.Home .main .content, .Home .main .sidebar{
+    background: white;
+    padding: 20px;
+}
+
+.Home .main .content .post{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin-bottom: 20px;
+    background: var(--background-light);
+    color: grey;
+}
+
+.Home .main .content .post:last-child{
+    margin-bottom: 0;
+}
+
+.Home .main .content .post img{
+    width: 100%;
+    float: left;
+}
+
+.Home .main .content .post .post-content{
+    padding: 5px 15px;
+}
+
+.Home .main .content .post .post-content .title{
+    font: 22px/1.5 Oswald, Limonf3;
+    color: teal;
+    padding-bottom: 5px;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.Home .main .content .post .post-content .except p{
+    padding-top: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font: 14px/1.5 Vidaloka, OdorMeanChey;
+}
+
+@media only screen and (max-width: 600px){
+    .Home header .inner{
+        grid-template-columns: 100%;
+        padding: 5px;
+    }
+
+    .Home header .inner form{
+        padding: 5px 0;
+    }
+
+    .Home header .inner .title{
+        text-align: center;
+    }
+}
