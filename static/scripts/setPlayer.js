@@ -26,14 +26,14 @@ function setScreen(entry,id,click){
     }
 
     if(click){
-        $('.Post .outer .content .playlist #part'+clicked)
-            .css({'background':'var(--background)','color':'black'})
+        $('.Post .video .playlist #part'+clicked)
+            .css({'background':'var(--background-light)','color':'black'})
     }
-    $('.Post .outer .content .playlist #part'+id)
-        .css({'background':'var(--background-dark)','color':'white'})
+    $('.Post .video .playlist #part'+id)
+        .css({'background':'var(--background)','color':'white'})
 
 
-    $('.Post .outer .content .video .screen').html(iframe)
+    $('.Post .video .screen').html(iframe)
     if((entry['type'] === "Facebook")&&(fb_api)){
         FB.XFBML.parse()
     }  

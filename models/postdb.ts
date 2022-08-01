@@ -47,12 +47,16 @@ class Postdb{
     async getItem(req, amount, query={}){
         const posts = req.mydb.collection<PostSchema>("posts")
         let item = null
+        let items = null
 
         if(req.params.id){
             item = await posts.findOne({id: req.params.id})
         }
 
-        const items = await posts.find(query).sort({date:-1,_id:-1}).limit(amount).toArray()
+        if(amount){
+            items = await posts.find(query).sort({date:-1,_id:-1}).limit(amount).toArray()
+        }
+        
         return {item:item, items:items}
     }
 

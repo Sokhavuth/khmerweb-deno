@@ -1,4 +1,4 @@
-// controllers/front/home.jsx
+// controllers/front/home.js
 
 import config from '../../config.js'
 import _Home from '../../views/front/home.jsx'
