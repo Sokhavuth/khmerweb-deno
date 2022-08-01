@@ -60,9 +60,24 @@
     margin-bottom: 0;
 }
 
-.Home .main .content .post img{
+.Home .main .content .post .thumb{
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.Home .main .content .post .thumb img{
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    float: left;
+    height: 100%;
+}
+
+.Home .main .content .post .thumb .play-icon{
+    height: auto;
+    width: 20%;
+    top: 2px;
+    left: 2px;
 }
 
 .Home .main .content .post .post-content{

@@ -10,7 +10,12 @@ function HomeJsx(props){
   for(let post of props.config.posts){
     content.push(
       <div class="post">
-        <a href={`/post/${post.id}`}><img src={post.thumb} /></a>
+        <a class="thumb" href={`/post/${post.id}`}>
+          <img src={post.thumb} />
+          {((post.video) && (post.video !== "[]")) &&
+          <img class="play-icon" src="/images/play.png" />
+      }
+        </a>
         <div class="post-content">
           <a class="title" href={`/post/${post.id}`}>{post.title}</a>
           <span>{(new Date(post.postdate)).toLocaleDateString('it-IT')}</span>
