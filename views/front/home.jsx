@@ -13,7 +13,7 @@ function HomeJsx(props){
         <a href={`/post/${post.id}`}><img src={post.thumb} /></a>
         <div class="post-content">
           <a class="title" href={`/post/${post.id}`}>{post.title}</a>
-          <span>{post.postdate}</span>
+          <span>{(new Date(post.postdate)).toLocaleDateString('it-IT')}</span>
           <div class="except" dangerouslySetInnerHTML={{__html: `${post.content}`}}/>
         </div>
       </div>
