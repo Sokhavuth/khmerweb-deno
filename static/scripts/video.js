@@ -4,8 +4,12 @@ var episode = 0
 
 const genJson = () => {
     let json = $('input[name="video"]').val()
-    json = JSON.parse(json)
-    episode = json.length
+    if((json !== '')&&(json !== '[]')){
+        json = JSON.parse(json)
+        episode = json.length
+    }else{
+        episode = 0
+    }
 
     const type = $('select[name="type"').val()
     const id = $('input[name="videoid"').val()
